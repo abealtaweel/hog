@@ -37,10 +37,6 @@ def roll_dice(num_rolls, dice=six_sided):
     else:
         return sum
 
-
-
-
-
 def take_turn(num_rolls, opponent_score, dice=six_sided):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 (Free bacon).
 
@@ -220,6 +216,12 @@ def max_scoring_num_rolls(dice=six_sided):
     10
     """
     "*** YOUR CODE HERE ***"
+    avg_list=[]
+    for num_rolls in range (1,11):
+       avg_roll_dice=make_averaged(roll_dice)
+       avg_list.append (avg_roll_dice(num_rolls,dice))
+    return avg_list.index(max(avg_list))+1
+        
 
 def winner(strategy0, strategy1):
     """Return 0 if strategy0 wins against strategy1, and 1 otherwise."""
